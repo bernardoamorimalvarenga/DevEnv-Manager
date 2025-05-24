@@ -575,7 +575,7 @@ Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICEN
 
 ## 👨‍💻 **Autor**
 
-**Seu Nome**
+**Bernardo**
 - GitHub: [@bernardoamorimalvarenga](https://github.com/bernardoamorimalvarenga)
 - Email: amorimbernardogame@gmail.com
 
