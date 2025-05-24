@@ -622,4 +622,4 @@ If DevEnv Manager helped you, consider:
 
 </div>
 
-[🇧🇷 Português](README.pt-br.md) | [🇺🇸 English](README.md)
+
