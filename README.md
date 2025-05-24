@@ -3,7 +3,6 @@
 **Salve, sincronize e restaure ambientes de desenvolvimento completos em minutos**
 
 ![PyPI](https://img.shields.io/pypi/v/devenv-manager)
-![Downloads](https://img.shields.io/pypi/dm/devenv-manager)
 ![GitHub Stars](https://img.shields.io/github/stars/bernardoamorimalvarenga/devenv-manager)
 ![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Linux-green.svg)
