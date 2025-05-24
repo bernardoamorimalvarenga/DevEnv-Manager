@@ -50,8 +50,8 @@ git config --global user.name...                      # Git configs
 
 **✅ Com DevEnv Manager (30 minutos):**
 ```bash
-pip install devenv-manager
-devenv restore "meu-ambiente-completo"
+pip install devenv-manager==0.1.1
+devm restore "meu-ambiente-completo"
 # ☕ Vai tomar um café - tudo automatizado!
 ```
 
@@ -62,7 +62,7 @@ devenv restore "meu-ambiente-completo"
 ### **Método 1: Instalação Direta (Recomendado)**
 ```bash
 # Em desenvolvimento - será disponibilizado no PyPI
-pip install devenv-manager
+pip install devenv-manager==0.1.1
 ```
 
 ### **Método 2: Instalação Manual**
@@ -79,7 +79,7 @@ source .venv/bin/activate
 pip install -e .
 
 # Teste a instalação
-devenv --help
+devm --help
 ```
 
 ### **Requisitos do Sistema:**
@@ -96,7 +96,7 @@ devenv --help
 
 ```bash
 # Inicialize o DevEnv Manager
-devenv init
+devm init
 
 # ✅ Saída:
 # 🚀 DevEnv Manager initialized successfully!
@@ -107,7 +107,7 @@ devenv init
 
 ```bash
 # Capture tudo que está instalado e configurado
-devenv capture "meu-setup-$(date +%Y%m%d)"
+devm capture "meu-setup-$(date +%Y%m%d)"
 
 # ✅ Saída exemplo:
 # 📸 Capturing environment: meu-setup-20241201
@@ -130,7 +130,7 @@ devenv capture "meu-setup-$(date +%Y%m%d)"
 
 ```bash
 # Liste todos os ambientes capturados
-devenv list
+devm list
 
 # ✅ Saída exemplo:
 # ┏━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━┓
@@ -146,7 +146,7 @@ devenv list
 
 ```bash
 # Veja o que contém um ambiente específico
-devenv show "meu-setup-20241201"
+devm show "meu-setup-20241201"
 
 # ✅ Saída exemplo:
 # 📋 Environment Details: meu-setup-20241201
@@ -176,7 +176,7 @@ devenv show "meu-setup-20241201"
 #### **Preview Seguro (Dry Run):**
 ```bash
 # Veja o que será feito SEM aplicar mudanças
-devenv restore "meu-setup-20241201" --dry-run
+devm restore "meu-setup-20241201" --dry-run
 
 # ✅ Saída exemplo:
 # 🔍 DRY RUN MODE - No changes will be made
@@ -191,7 +191,7 @@ devenv restore "meu-setup-20241201" --dry-run
 #### **Restauração Real:**
 ```bash
 # Restaure o ambiente (VAI INSTALAR OS PACOTES)
-devenv restore "meu-setup-20241201"
+devm restore "meu-setup-20241201"
 
 # ✅ Processo interativo:
 # 🔄 Restoring environment: meu-setup-20241201
@@ -226,7 +226,7 @@ devenv restore "meu-setup-20241201"
 
 ```bash
 # Configure sincronização com repositório privado
-devenv sync setup git@github.com:seu-usuario/devenv-private.git
+devm sync setup git@github.com:seu-usuario/devenv-private.git
 
 # ✅ Saída:
 # 🔧 Setting up git sync with git@github.com:seu-usuario/devenv-private.git
@@ -237,8 +237,8 @@ devenv sync setup git@github.com:seu-usuario/devenv-private.git
 # │ Repository: git@github.com:seu-usuario/devenv-private.git │
 # │ Branch: main             │
 # │                          │
-# │ Use 'devenv sync push' to upload environments │
-# │ Use 'devenv sync pull' to download environments │
+# │ Use 'devm sync push' to upload environments │
+# │ Use 'devm sync pull' to download environments │
 # ╰──────────────╯
 ```
 
@@ -246,13 +246,13 @@ devenv sync setup git@github.com:seu-usuario/devenv-private.git
 
 ```bash
 # Envie todos os ambientes para o repositório
-devenv sync push
+devm sync push
 
 # Envie apenas um ambiente específico
-devenv sync push -e "meu-setup-20241201"
+devm sync push -e "meu-setup-20241201"
 
 # Envie múltiplos ambientes
-devenv sync push -e "ambiente1" -e "ambiente2"
+devm sync push -e "ambiente1" -e "ambiente2"
 
 # ✅ Saída exemplo:
 # 📤 Pushing specific environments: meu-setup-20241201
@@ -263,7 +263,7 @@ devenv sync push -e "ambiente1" -e "ambiente2"
 
 ```bash
 # Baixe ambientes do repositório
-devenv sync pull
+devm sync pull
 
 # ✅ Saída exemplo:
 # 📥 Pulling environments from remote...
@@ -276,7 +276,7 @@ devenv sync pull
 
 ```bash
 # Veja status do sync
-devenv sync status
+devm sync status
 
 # ✅ Saída exemplo:
 # ┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -297,52 +297,52 @@ devenv sync status
 ### **🆕 Caso 1: Laptop Novo**
 ```bash
 # Na máquina antiga:
-devenv capture "meu-setup-completo"
-devenv sync push
+devm capture "meu-setup-completo"
+devm sync push
 
 # Na máquina nova:
 pip install devenv-manager
-devenv init
-devenv sync setup git@github.com:seu-usuario/devenv-private.git
-devenv sync pull
-devenv restore "meu-setup-completo"
+devm init
+devm sync setup git@github.com:seu-usuario/devenv-private.git
+devm sync pull
+devm restore "meu-setup-completo"
 # ☕ 30 minutos depois: ambiente idêntico!
 ```
 
 ### **👥 Caso 2: Onboarding de Equipe**
 ```bash
 # Setup da empresa (feito uma vez pelo tech lead):
-devenv capture "empresa-dev-env-2024"  
-devenv sync push
+devm capture "empresa-dev-env-2024"  
+devm sync push
 
 # Novo desenvolvedor:
-devenv sync pull
-devenv restore "empresa-dev-env-2024"
+devm sync pull
+devm restore "empresa-dev-env-2024"
 # 🎉 Ambiente padronizado automaticamente!
 ```
 
 ### **🏠 Caso 3: Sincronização Casa/Trabalho**
 ```bash
 # No trabalho:
-devenv capture "work-setup"
-devenv sync push
+devm capture "work-setup"
+devm sync push
 
 # Em casa:
-devenv sync pull
-devenv restore "work-setup" 
+devm sync pull
+devm restore "work-setup" 
 # 🔄 Mesmo ambiente em casa!
 ```
 
 ### **🔄 Caso 4: Backup/Disaster Recovery**
 ```bash
 # Backup regular:
-devenv capture "backup-$(date +%Y%m%d)"
-devenv sync push
+devm capture "backup-$(date +%Y%m%d)"
+devm sync push
 
 # Depois de problema/formatação:
-devenv sync pull
-devenv list  # Ver backups disponíveis
-devenv restore "backup-20241201"
+devm sync pull
+devm list  # Ver backups disponíveis
+devm restore "backup-20241201"
 # 🛡️ Ambiente restaurado!
 ```
 
@@ -352,37 +352,37 @@ devenv restore "backup-20241201"
 
 ### **Comandos Básicos:**
 ```bash
-devenv init                    # Inicializar DevEnv Manager
-devenv capture "nome"          # Capturar ambiente atual
-devenv list                    # Listar ambientes salvos
-devenv show "nome"             # Mostrar detalhes do ambiente  
-devenv restore "nome"          # Restaurar ambiente
-devenv delete "nome"           # Deletar ambiente
-devenv status                  # Status do sistema atual
+devm init                    # Inicializar DevEnv Manager
+devm capture "nome"          # Capturar ambiente atual
+devm list                    # Listar ambientes salvos
+devm show "nome"             # Mostrar detalhes do ambiente  
+devm restore "nome"          # Restaurar ambiente
+devm delete "nome"           # Deletar ambiente
+devm status                  # Status do sistema atual
 ```
 
 ### **Comandos de Sync:**
 ```bash
-devenv sync setup <repo-url>   # Configurar sincronização Git
-devenv sync push               # Enviar todos os ambientes
-devenv sync push -e "nome"     # Enviar ambiente específico
-devenv sync pull               # Baixar ambientes do repositório
-devenv sync status             # Status da sincronização
+devm sync setup <repo-url>   # Configurar sincronização Git
+devm sync push               # Enviar todos os ambientes
+devm sync push -e "nome"     # Enviar ambiente específico
+devm sync pull               # Baixar ambientes do repositório
+devm sync status             # Status da sincronização
 ```
 
 ### **Comandos Utilitários:**
 ```bash
-devenv export "nome" arquivo.json    # Exportar para arquivo
-devenv import-env arquivo.json       # Importar de arquivo
-devenv diff "env1" "env2"           # Comparar ambientes
-devenv clean                        # Limpar backups antigos
+devm export "nome" arquivo.json    # Exportar para arquivo
+devm import-env arquivo.json       # Importar de arquivo
+devm diff "env1" "env2"           # Comparar ambientes
+devm clean                        # Limpar backups antigos
 ```
 
 ### **Opções Úteis:**
 ```bash
-devenv restore "nome" --dry-run     # Preview sem aplicar mudanças
-devenv restore "nome" --force       # Pular confirmações
-devenv delete "nome" --force        # Deletar sem confirmação
+devm restore "nome" --dry-run     # Preview sem aplicar mudanças
+devm restore "nome" --force       # Pular confirmações
+devm delete "nome" --force        # Deletar sem confirmação
 ```
 
 ---
@@ -454,16 +454,16 @@ devenv delete "nome" --force        # Deletar sem confirmação
 ### **🛡️ Boas Práticas:**
 ```bash
 # ✅ Use repositório privado
-devenv sync setup git@github.com:seu-usuario/devenv-PRIVATE.git
+devm sync setup git@github.com:seu-usuario/devenv-PRIVATE.git
 
 # ✅ Sempre faça preview primeiro
-devenv restore "ambiente" --dry-run
+devm restore "ambiente" --dry-run
 
 # ✅ Backup manual antes de grandes mudanças
 cp ~/.bashrc ~/.bashrc.backup-$(date +%s)
 
 # ✅ Revise o que será instalado
-devenv show "ambiente"
+devm show "ambiente"
 ```
 
 ---
@@ -493,7 +493,7 @@ devenv show "ambiente"
 sudo echo "teste"
 
 # Execute com confirmação
-devenv restore "ambiente" --force
+devm restore "ambiente" --force
 ```
 
 #### **"Git sync failed":**
@@ -502,7 +502,7 @@ devenv restore "ambiente" --force
 git clone git@github.com:seu-usuario/devenv-private.git
 
 # Reconfigure se necessário
-devenv sync setup git@github.com:seu-usuario/devenv-private.git
+devm sync setup git@github.com:seu-usuario/devenv-private.git
 ```
 
 #### **"VS Code extensions failed":**
@@ -511,19 +511,19 @@ devenv sync setup git@github.com:seu-usuario/devenv-private.git
 code --version
 
 # Instale manualmente se necessário
-devenv show "ambiente"  # Ver lista de extensões
+devm show "ambiente"  # Ver lista de extensões
 ```
 
 ### **Logs e Debug:**
 ```bash
 # Ver status detalhado
-devenv status
+devm status
 
 # Verificar arquivos de config
 ls -la ~/.devenv/
 
 # Preview antes de aplicar
-devenv restore "ambiente" --dry-run
+devm restore "ambiente" --dry-run
 ```
 
 ---
