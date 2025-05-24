@@ -1,9 +1,8 @@
 # 🚀 DevEnv Manager
 
-**Salve, sincronize e restaure ambientes de desenvolvimento completos em minutos**
+**Save, sync and restore complete development environments in minutes**
 
 ![PyPI](https://img.shields.io/pypi/v/devenv-manager)
-![Downloads](https://img.shields.io/pypi/dm/devenv-manager)
 ![GitHub Stars](https://img.shields.io/github/stars/bernardoamorimalvarenga/devenv-manager)
 ![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Linux-green.svg)
@@ -12,105 +11,117 @@
 
 ---
 
-## 🎯 **O Que É?**
+## 🎯 **What Is It?**
 
-O DevEnv Manager é uma ferramenta CLI que resolve um dos maiores problemas dos desenvolvedores: **reconfigurar ambientes de desenvolvimento do zero**.
+DevEnv Manager is a CLI tool that solves one of developers' biggest problems: **reconfiguring development environments from scratch**.
 
-Em vez de passar dias instalando pacotes, configurando dotfiles e extensões toda vez que você:
-- 💻 Compra um laptop novo
-- 🔄 Formata o sistema  
-- 👥 Precisa padronizar a equipe
-- 🏠 Quer sincronizar casa/trabalho
+Instead of spending days installing packages, configuring dotfiles and extensions every time you:
+- 💻 Buy a new laptop
+- 🔄 Format your system  
+- 👥 Need to standardize the team
+- 🏠 Want to sync home/work
 
-**Você simplesmente restaura tudo automaticamente!**
+**You simply restore everything automatically!**
 
 ---
 
-## 🆚 **DevEnv Manager vs Outras Ferramentas**
+## 🆚 **DevEnv Manager vs Other Tools**
 
 | | DevEnv Manager | Git/GitHub | Docker | Dotfiles Repos |
 |---|---|---|---|---|
-| **O que gerencia** | 🖥️ **Ambiente completo** | 📝 Código fonte | 📦 Containers isolados | 📄 Apenas configs |
-| **Instala pacotes** | ✅ 271 pacotes APT | ❌ | ❌ | ❌ |
-| **Configura sistema** | ✅ Dotfiles + extensões | ❌ | ❌ | ✅ Só configs |
-| **Sincronização** | ✅ Git bidirecional | ✅ Código apenas | ❌ | ✅ Configs apenas |
-| **Caso de uso** | 🛠️ Setup pessoal completo | 📂 Projetos de código | 🚀 Deploy apps | ⚙️ Configs básicas |
+| **What it manages** | 🖥️ **Complete environment** | 📝 Source code | 📦 Isolated containers | 📄 Config files only |
+| **Installs packages** | ✅ 271 APT packages | ❌ | ❌ | ❌ |
+| **Configures system** | ✅ Dotfiles + extensions | ❌ | ❌ | ✅ Configs only |
+| **Synchronization** | ✅ Bidirectional Git | ✅ Code only | ❌ | ✅ Configs only |
+| **Use case** | 🛠️ Complete personal setup | 📂 Code projects | 🚀 App deployment | ⚙️ Basic configs |
 
-### **Exemplo Prático:**
+### **DevEnv Manager vs devenv.sh**
 
-**❌ Situação Atual (2 dias de trabalho):**
+| | DevEnv Manager | devenv.sh |
+|---|---|---|
+| **Approach** | 📸 Capture existing environment | 📝 Declare from scratch |
+| **Technology** | 🐍 Python + Linux tools | ❄️ Nix ecosystem |
+| **Complexity** | 🟢 Simple - one command | 🔴 Complex - requires Nix |
+| **Installation** | `pip install devenv-manager` | Nix + configuration |
+| **Command** | `devm capture`, `devm restore` | `devenv shell` |
+| **Target audience** | 👨‍💻 Beginner/intermediate devs | 🧙‍♂️ Advanced Nix users |
+| **Use case** | 🔄 Backup/sync existing environments | 🏗️ Reproducible environments |
+| **Learning curve** | 5 minutes | Weeks (Nix) |
+
+### **Practical Example:**
+
+**❌ Current Situation (2 days of work):**
 ```bash
-# Laptop novo/formatado:
-sudo apt update && sudo apt install git curl vim...    # 271 pacotes manualmente
-code --install-extension ms-python.python...          # 15+ extensões VS Code  
-cp dotfiles/.bashrc ~/.bashrc                         # Configurar terminal
+# New/formatted laptop:
+sudo apt update && sudo apt install git curl vim...    # 271+ packages manually
+code --install-extension ms-python.python...          # 15+ VS Code extensions  
+cp dotfiles/.bashrc ~/.bashrc                         # Configure terminal
 git config --global user.name...                      # Git configs
-# ... centenas de passos manuais
+# ... hundreds of manual steps
 ```
 
-**✅ Com DevEnv Manager (30 minutos):**
+**✅ With DevEnv Manager (30 minutes):**
 ```bash
-pip install devenv-manager==0.1.1
-devm restore "meu-ambiente-completo"
-# ☕ Vai tomar um café - tudo automatizado!
+pip install devenv-manager
+devm restore "my-complete-environment"
+# ☕ Go grab a coffee - everything automated!
 ```
 
 ---
 
-## 🚀 **Instalação**
+## 🚀 **Installation**
 
-### **Método 1: Instalação Direta (Recomendado)**
+### **Method 1: Direct Installation (Recommended)**
 ```bash
-# Em desenvolvimento - será disponibilizado no PyPI
-pip install devenv-manager==0.1.1
+pip install devenv-manager
 ```
 
-### **Método 2: Instalação Manual**
+### **Method 2: Manual Installation**
 ```bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/devenv-manager.git
+# Clone the repository
+git clone https://github.com/bernardoamorimalvarenga/devenv-manager.git
 cd devenv-manager
 
-# Crie ambiente virtual
+# Create virtual environment
 python -m venv .venv
 source .venv/bin/activate
 
-# Instale as dependências
+# Install dependencies
 pip install -e .
 
-# Teste a instalação
+# Test installation
 devm --help
 ```
 
-### **Requisitos do Sistema:**
+### **System Requirements:**
 - 🐧 **Linux** (Ubuntu 20.04+, Debian 10+, Arch, Fedora)
 - 🐍 **Python 3.8+**
-- 🔑 **sudo** (para instalação de pacotes)
-- 📦 **git** (para sincronização)
+- 🔑 **sudo** (for package installation)
+- 📦 **git** (for synchronization)
 
 ---
 
-## 📋 **Guia de Uso Completo**
+## 📋 **Complete Usage Guide**
 
-### **1. Primeira Configuração**
+### **1. Initial Setup**
 
 ```bash
-# Inicialize o DevEnv Manager
+# Initialize DevEnv Manager
 devm init
 
-# ✅ Saída:
+# ✅ Output:
 # 🚀 DevEnv Manager initialized successfully!
-# Config stored in: /home/usuario/.devenv
+# Config stored in: /home/user/.devenv
 ```
 
-### **2. Capturar Seu Ambiente Atual**
+### **2. Capture Your Current Environment**
 
 ```bash
-# Capture tudo que está instalado e configurado
-devm capture "meu-setup-$(date +%Y%m%d)"
+# Capture everything that's installed and configured
+devm capture "my-setup-$(date +%Y%m%d)"
 
-# ✅ Saída exemplo:
-# 📸 Capturing environment: meu-setup-20241201
+# ✅ Example output:
+# 📸 Capturing environment: my-setup-20241201
 # ✓ Detecting system configuration...
 # 
 # ┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
@@ -123,33 +134,33 @@ devm capture "meu-setup-$(date +%Y%m%d)"
 # │ Dotfiles           │ 8     │
 # │ VS Code Extensions │ 23    │
 # └────────────────────┴───────┘
-# ✓ Environment 'meu-setup-20241201' captured successfully!
+# ✓ Environment 'my-setup-20241201' captured successfully!
 ```
 
-### **3. Ver Ambientes Salvos**
+### **3. List Saved Environments**
 
 ```bash
-# Liste todos os ambientes capturados
+# List all captured environments
 devm list
 
-# ✅ Saída exemplo:
+# ✅ Example output:
 # ┏━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━┓
 # ┃ Name                 ┃ Created         ┃ File                ┃
 # ┡━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━┩
-# │ meu-setup-20241201   │ 2024-12-01 14:30│ meu-setup-20241201.json │
-# │ ambiente-trabalho    │ 2024-11-28 09:15│ ambiente-trabalho.json  │
-# │ setup-completo       │ 2024-11-25 16:45│ setup-completo.json     │
+# │ my-setup-20241201    │ 2024-12-01 14:30│ my-setup-20241201.json │
+# │ work-environment     │ 2024-11-28 09:15│ work-environment.json  │
+# │ complete-setup       │ 2024-11-25 16:45│ complete-setup.json     │
 # └──────────────────────┴─────────────────┴─────────────────────────┘
 ```
 
-### **4. Ver Detalhes de um Ambiente**
+### **4. View Environment Details**
 
 ```bash
-# Veja o que contém um ambiente específico
-devm show "meu-setup-20241201"
+# See what a specific environment contains
+devm show "my-setup-20241201"
 
-# ✅ Saída exemplo:
-# 📋 Environment Details: meu-setup-20241201
+# ✅ Example output:
+# 📋 Environment Details: my-setup-20241201
 # 
 # ┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 # ┃ Property           ┃ Value                        ┃
@@ -171,14 +182,14 @@ devm show "meu-setup-20241201"
 # └────────────────────┴───────┘
 ```
 
-### **5. Restaurar um Ambiente**
+### **5. Restore an Environment**
 
-#### **Preview Seguro (Dry Run):**
+#### **Safe Preview (Dry Run):**
 ```bash
-# Veja o que será feito SEM aplicar mudanças
-devm restore "meu-setup-20241201" --dry-run
+# See what will be done WITHOUT applying changes
+devm restore "my-setup-20241201" --dry-run
 
-# ✅ Saída exemplo:
+# ✅ Example output:
 # 🔍 DRY RUN MODE - No changes will be made
 # 📦 Restoring packages...
 # Would install 45 new APT packages
@@ -188,13 +199,13 @@ devm restore "meu-setup-20241201" --dry-run
 # ✓ Dry run completed successfully!
 ```
 
-#### **Restauração Real:**
+#### **Actual Restoration:**
 ```bash
-# Restaure o ambiente (VAI INSTALAR OS PACOTES)
-devm restore "meu-setup-20241201"
+# Restore the environment (WILL INSTALL PACKAGES)
+devm restore "my-setup-20241201"
 
-# ✅ Processo interativo:
-# 🔄 Restoring environment: meu-setup-20241201
+# ✅ Interactive process:
+# 🔄 Restoring environment: my-setup-20241201
 # 
 # ┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
 # ┃ Type               ┃ Count ┃
@@ -220,21 +231,21 @@ devm restore "meu-setup-20241201"
 
 ---
 
-## 🔄 **Sincronização Git (Multi-máquina)**
+## 🔄 **Git Synchronization (Multi-machine)**
 
-### **Setup Inicial (Uma vez)**
+### **Initial Setup (One time)**
 
 ```bash
-# Configure sincronização com repositório privado
-devm sync setup git@github.com:seu-usuario/devenv-private.git
+# Configure synchronization with private repository
+devm sync setup git@github.com:your-username/devenv-private.git
 
-# ✅ Saída:
-# 🔧 Setting up git sync with git@github.com:seu-usuario/devenv-private.git
+# ✅ Output:
+# 🔧 Setting up git sync with git@github.com:your-username/devenv-private.git
 # 
 # ╭─ Sync Ready ─╮
 # │ Git sync setup complete! │
 # │                          │
-# │ Repository: git@github.com:seu-usuario/devenv-private.git │
+# │ Repository: git@github.com:your-username/devenv-private.git │
 # │ Branch: main             │
 # │                          │
 # │ Use 'devm sync push' to upload environments │
@@ -242,48 +253,48 @@ devm sync setup git@github.com:seu-usuario/devenv-private.git
 # ╰──────────────╯
 ```
 
-### **Enviando Ambientes**
+### **Pushing Environments**
 
 ```bash
-# Envie todos os ambientes para o repositório
+# Push all environments to repository
 devm sync push
 
-# Envie apenas um ambiente específico
-devm sync push -e "meu-setup-20241201"
+# Push only a specific environment
+devm sync push -e "my-setup-20241201"
 
-# Envie múltiplos ambientes
-devm sync push -e "ambiente1" -e "ambiente2"
+# Push multiple environments
+devm sync push -e "environment1" -e "environment2"
 
-# ✅ Saída exemplo:
-# 📤 Pushing specific environments: meu-setup-20241201
+# ✅ Example output:
+# 📤 Pushing specific environments: my-setup-20241201
 # ✓ Successfully pushed 1 specific environments
 ```
 
-### **Baixando Ambientes**
+### **Pulling Environments**
 
 ```bash
-# Baixe ambientes do repositório
+# Download environments from repository
 devm sync pull
 
-# ✅ Saída exemplo:
+# ✅ Example output:
 # 📥 Pulling environments from remote...
-# ✓ Imported ambiente-trabalho
-# ✓ Imported setup-casa
+# ✓ Imported work-environment
+# ✓ Imported home-setup
 # ✓ Successfully imported 2 environments
 ```
 
-### **Status da Sincronização**
+### **Sync Status**
 
 ```bash
-# Veja status do sync
+# View sync status
 devm sync status
 
-# ✅ Saída exemplo:
+# ✅ Example output:
 # ┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 # ┃ Property           ┃ Value                                               ┃
 # ┡━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
 # │ Status             │ ✓ Enabled                                          │
-# │ Remote URL         │ git@github.com:seu-usuario/devenv-private.git     │
+# │ Remote URL         │ git@github.com:your-username/devenv-private.git   │
 # │ Branch             │ main                                               │
 # │ Uncommitted Changes │ No                                                │
 # │ Last Commit        │ abc123 - Sync 2 environments                      │
@@ -292,123 +303,123 @@ devm sync status
 
 ---
 
-## 💼 **Casos de Uso Práticos**
+## 💼 **Practical Use Cases**
 
-### **🆕 Caso 1: Laptop Novo**
+### **🆕 Case 1: New Laptop**
 ```bash
-# Na máquina antiga:
-devm capture "meu-setup-completo"
+# On old machine:
+devm capture "my-complete-setup"
 devm sync push
 
-# Na máquina nova:
+# On new machine:
 pip install devenv-manager
 devm init
-devm sync setup git@github.com:seu-usuario/devenv-private.git
+devm sync setup git@github.com:your-username/devenv-private.git
 devm sync pull
-devm restore "meu-setup-completo"
-# ☕ 30 minutos depois: ambiente idêntico!
+devm restore "my-complete-setup"
+# ☕ 30 minutes later: identical environment!
 ```
 
-### **👥 Caso 2: Onboarding de Equipe**
+### **👥 Case 2: Team Onboarding**
 ```bash
-# Setup da empresa (feito uma vez pelo tech lead):
-devm capture "empresa-dev-env-2024"  
+# Company setup (done once by tech lead):
+devm capture "company-dev-env-2024"  
 devm sync push
 
-# Novo desenvolvedor:
+# New developer:
 devm sync pull
-devm restore "empresa-dev-env-2024"
-# 🎉 Ambiente padronizado automaticamente!
+devm restore "company-dev-env-2024"
+# 🎉 Standardized environment automatically!
 ```
 
-### **🏠 Caso 3: Sincronização Casa/Trabalho**
+### **🏠 Case 3: Home/Work Sync**
 ```bash
-# No trabalho:
+# At work:
 devm capture "work-setup"
 devm sync push
 
-# Em casa:
+# At home:
 devm sync pull
 devm restore "work-setup" 
-# 🔄 Mesmo ambiente em casa!
+# 🔄 Same environment at home!
 ```
 
-### **🔄 Caso 4: Backup/Disaster Recovery**
+### **🔄 Case 4: Backup/Disaster Recovery**
 ```bash
-# Backup regular:
+# Regular backup:
 devm capture "backup-$(date +%Y%m%d)"
 devm sync push
 
-# Depois de problema/formatação:
+# After problem/formatting:
 devm sync pull
-devm list  # Ver backups disponíveis
+devm list  # See available backups
 devm restore "backup-20241201"
-# 🛡️ Ambiente restaurado!
+# 🛡️ Environment restored!
 ```
 
 ---
 
-## 📊 **Comandos Disponíveis**
+## 📊 **Available Commands**
 
-### **Comandos Básicos:**
+### **Basic Commands:**
 ```bash
-devm init                    # Inicializar DevEnv Manager
-devm capture "nome"          # Capturar ambiente atual
-devm list                    # Listar ambientes salvos
-devm show "nome"             # Mostrar detalhes do ambiente  
-devm restore "nome"          # Restaurar ambiente
-devm delete "nome"           # Deletar ambiente
-devm status                  # Status do sistema atual
+devm init                    # Initialize DevEnv Manager
+devm capture "name"          # Capture current environment
+devm list                    # List saved environments
+devm show "name"             # Show environment details  
+devm restore "name"          # Restore environment
+devm delete "name"           # Delete environment
+devm status                  # Current system status
 ```
 
-### **Comandos de Sync:**
+### **Sync Commands:**
 ```bash
-devm sync setup <repo-url>   # Configurar sincronização Git
-devm sync push               # Enviar todos os ambientes
-devm sync push -e "nome"     # Enviar ambiente específico
-devm sync pull               # Baixar ambientes do repositório
-devm sync status             # Status da sincronização
+devm sync setup <repo-url>   # Configure Git synchronization
+devm sync push               # Push all environments
+devm sync push -e "name"     # Push specific environment
+devm sync pull               # Download environments from repository
+devm sync status             # Synchronization status
 ```
 
-### **Comandos Utilitários:**
+### **Utility Commands:**
 ```bash
-devm export "nome" arquivo.json    # Exportar para arquivo
-devm import-env arquivo.json       # Importar de arquivo
-devm diff "env1" "env2"           # Comparar ambientes
-devm clean                        # Limpar backups antigos
+devm export "name" file.json    # Export to file
+devm import-env file.json       # Import from file
+devm diff "env1" "env2"         # Compare environments
+devm clean                      # Clean old backups
 ```
 
-### **Opções Úteis:**
+### **Useful Options:**
 ```bash
-devm restore "nome" --dry-run     # Preview sem aplicar mudanças
-devm restore "nome" --force       # Pular confirmações
-devm delete "nome" --force        # Deletar sem confirmação
+devm restore "name" --dry-run     # Preview without applying changes
+devm restore "name" --force       # Skip confirmations
+devm delete "name" --force        # Delete without confirmation
 ```
 
 ---
 
-## 🎯 **O Que É Capturado**
+## 🎯 **What Gets Captured**
 
-### **📦 Pacotes do Sistema:**
-- **APT packages** (apenas manually installed)
+### **📦 System Packages:**
+- **APT packages** (manually installed only)
 - **Snap packages** 
 - **Flatpak packages**
-- **PIP packages** (globais)
+- **PIP packages** (global)
 
-### **⚙️ Configurações:**
-- **Dotfiles importantes**: `.bashrc`, `.bash_profile`, `.zshrc`, `.profile`
-- **Configs de ferramentas**: `.vimrc`, `.gitconfig`
-- **SSH config**: `.ssh/config` (opcional, desabilitado por padrão)
+### **⚙️ Configurations:**
+- **Important dotfiles**: `.bashrc`, `.bash_profile`, `.zshrc`, `.profile`
+- **Tool configs**: `.vimrc`, `.gitconfig`
+- **SSH config**: `.ssh/config` (optional, disabled by default)
 
-### **🔌 Extensões e Tools:**
-- **VS Code**: Todas as extensões instaladas
-- **System info**: OS, kernel, arquitetura, Python version
+### **🔌 Extensions and Tools:**
+- **VS Code**: All installed extensions
+- **System info**: OS, kernel, architecture, Python version
 
-### **Exemplo de Snapshot (JSON):**
+### **Example Snapshot (JSON):**
 ```json
 {
   "metadata": {
-    "name": "meu-setup-20241201",
+    "name": "my-setup-20241201",
     "created_at": "2024-12-01T14:30:00",
     "version": "0.1.0"
   },
@@ -424,8 +435,8 @@ devm delete "nome" --force        # Deletar sem confirmação
     "pip": ["requests", "flask", "django"]
   },
   "dotfiles": {
-    ".bashrc": "# Conteúdo do .bashrc...",
-    ".vimrc": "# Configurações do Vim..."
+    ".bashrc": "# Content of .bashrc...",
+    ".vimrc": "# Vim configurations..."
   },
   "vscode_extensions": [
     "ms-python.python",
@@ -436,176 +447,179 @@ devm delete "nome" --force        # Deletar sem confirmação
 
 ---
 
-## 🔒 **Segurança**
+## 🔒 **Security**
 
-### **✅ Configurações Seguras:**
-- **SSH keys** não são capturadas por padrão
-- **Backups automáticos** de arquivos existentes antes de substituir
-- **Dry-run mode** para preview seguro
-- **Confirmações** antes de mudanças importantes
-- **Repositórios privados** recomendados para sync
+### **✅ Secure Settings:**
+- **SSH keys** not captured by default
+- **Automatic backups** of existing files before replacing
+- **Dry-run mode** for safe preview
+- **Confirmations** before important changes
+- **Private repositories** recommended for sync
 
-### **⚠️ Cuidados Importantes:**
-- **Use repositórios privados** para dados sensíveis
-- **Revise snapshots** antes de compartilhar
-- **Dotfiles podem conter informações pessoais**
-- **Sempre teste com --dry-run** primeiro
+### **⚠️ Important Precautions:**
+- **Use private repositories** for sensitive data
+- **Review snapshots** before sharing
+- **Dotfiles may contain personal information**
+- **Always test with --dry-run** first
 
-### **🛡️ Boas Práticas:**
+### **🛡️ Best Practices:**
 ```bash
-# ✅ Use repositório privado
-devm sync setup git@github.com:seu-usuario/devenv-PRIVATE.git
+# ✅ Use private repository
+devm sync setup git@github.com:your-username/devenv-PRIVATE.git
 
-# ✅ Sempre faça preview primeiro
-devm restore "ambiente" --dry-run
+# ✅ Always preview first
+devm restore "environment" --dry-run
 
-# ✅ Backup manual antes de grandes mudanças
+# ✅ Manual backup before major changes
 cp ~/.bashrc ~/.bashrc.backup-$(date +%s)
 
-# ✅ Revise o que será instalado
-devm show "ambiente"
+# ✅ Review what will be installed
+devm show "environment"
 ```
 
 ---
 
 ## 🚀 **Performance**
 
-### **Tempos Típicos:**
-- **Captura**: ~30 segundos (271 pacotes + configs)
-- **Restore APT**: ~15 minutos (271 pacotes)
-- **Restore Snap**: ~5 minutos (26 pacotes)
-- **Dotfiles**: ~1 segundo
-- **VS Code extensions**: ~2 minutos
+### **Typical Times:**
+- **Capture**: ~30 seconds (271 packages + configs)
+- **Restore APT**: ~15 minutes (271 packages)
+- **Restore Snap**: ~5 minutes (26 packages)
+- **Dotfiles**: ~1 second
+- **VS Code extensions**: ~2 minutes
 
-### **Tamanhos:**
-- **Snapshot JSON**: ~16KB por ambiente
-- **Repositório sync**: ~1MB (10 ambientes)
+### **Sizes:**
+- **Snapshot JSON**: ~16KB per environment
+- **Sync repository**: ~1MB (10 environments)
 
 ---
 
 ## 🐛 **Troubleshooting**
 
-### **Problemas Comuns:**
+### **Common Issues:**
 
-#### **"Permission denied" durante restore:**
+#### **"Permission denied" during restore:**
 ```bash
-# Certifique-se que tem sudo
-sudo echo "teste"
+# Make sure you have sudo
+sudo echo "test"
 
-# Execute com confirmação
-devm restore "ambiente" --force
+# Execute with confirmation
+devm restore "environment" --force
 ```
 
 #### **"Git sync failed":**
 ```bash
-# Verifique se o repositório é privado e você tem acesso
-git clone git@github.com:seu-usuario/devenv-private.git
+# Check if repository is private and you have access
+git clone git@github.com:your-username/devenv-private.git
 
-# Reconfigure se necessário
-devm sync setup git@github.com:seu-usuario/devenv-private.git
+# Reconfigure if necessary
+devm sync setup git@github.com:your-username/devenv-private.git
 ```
 
 #### **"VS Code extensions failed":**
 ```bash
-# Certifique-se que VS Code está instalado
+# Make sure VS Code is installed
 code --version
 
-# Instale manualmente se necessário
-devm show "ambiente"  # Ver lista de extensões
+# Install manually if necessary
+devm show "environment"  # See extensions list
 ```
 
-### **Logs e Debug:**
+### **Logs and Debug:**
 ```bash
-# Ver status detalhado
+# View detailed status
 devm status
 
-# Verificar arquivos de config
+# Check config files
 ls -la ~/.devenv/
 
-# Preview antes de aplicar
-devm restore "ambiente" --dry-run
+# Preview before applying
+devm restore "environment" --dry-run
 ```
 
 ---
 
-## 🤝 **Contribuindo**
+## 🤝 **Contributing**
 
-Contribuições são bem-vindas! 
+Contributions are welcome! 
 
-### **Como Contribuir:**
-1. **Fork** o repositório
-2. **Crie** uma branch para sua feature (`git checkout -b feature/nova-funcionalidade`)
-3. **Commit** suas mudanças (`git commit -am 'Adiciona nova funcionalidade'`)
-4. **Push** para a branch (`git push origin feature/nova-funcionalidade`)
-5. **Abra** um Pull Request
+### **How to Contribute:**
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/new-feature`)
+3. **Commit** your changes (`git commit -am 'Add new feature'`)
+4. **Push** to the branch (`git push origin feature/new-feature`)
+5. **Open** a Pull Request
 
-### **Áreas que Precisam de Ajuda:**
-- **Suporte a outras distros** (CentOS, OpenSUSE)
-- **Package managers adicionais** (brew, chocolatey)
-- **Testes automatizados**
-- **Documentação**
-- **Interface gráfica**
+### **Areas That Need Help:**
+- **Support for other distros** (CentOS, OpenSUSE)
+- **Additional package managers** (brew, chocolatey)
+- **Automated testing**
+- **Documentation**
+- **Graphical interface**
 
 ---
 
 ## 🗺️ **Roadmap**
 
-### **v0.2.0 - Segurança** (Próximas 4 semanas)
-- [ ] Encriptação de snapshots
-- [ ] Lista de pacotes seguros (whitelist)
-- [ ] Filtro de dados sensíveis
-- [ ] Verificação de integridade
+### **v0.2.0 - Security** (Next 4 weeks)
+- [ ] Snapshot encryption
+- [ ] Safe packages list (whitelist)
+- [ ] Sensitive data filtering
+- [ ] Integrity verification
 
-### **v0.3.0 - Multi-OS** (8 semanas)
-- [ ] Suporte Windows (WSL)
-- [ ] Suporte macOS
+### **v0.3.0 - Multi-OS** (8 weeks)
+- [ ] Windows support (WSL)
+- [ ] macOS support
 - [ ] Homebrew support
 - [ ] Chocolatey support
 
-### **v1.0.0 - GUI e Cloud** (12 semanas)
-- [ ] Interface gráfica (PyQt6)
+### **v1.0.0 - GUI and Cloud** (12 weeks)
+- [ ] Graphical interface (PyQt6)
 - [ ] Cloud storage (Google Drive, Dropbox)
-- [ ] Templates da comunidade
-- [ ] Versão Pro com recursos avançados
+- [ ] Community templates
+- [ ] Pro version with advanced features
 
 ---
 
-## 📄 **Licença**
+## 📄 **License**
 
-Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para detalhes.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 👨‍💻 **Autor**
+## 👨‍💻 **Author**
 
-**Bernardo**
+**Bernardo Amorim Alvarenga**
 - GitHub: [@bernardoamorimalvarenga](https://github.com/bernardoamorimalvarenga)
 - Email: amorimbernardogame@gmail.com
 
 ---
 
-## 🙏 **Agradecimentos**
+## 🙏 **Acknowledgments**
 
-- **Click** - Framework CLI fantástico
-- **Rich** - Interface colorida e bonita  
-- **Git** - Sistema de sync robusto
-- **Comunidade Python** - Ferramentas incríveis
+- **Click** - Fantastic CLI framework
+- **Rich** - Beautiful and colorful interface  
+- **Git** - Robust sync system
+- **Python Community** - Amazing tools
 
 ---
 
-## ⭐ **Gostou do Projeto?**
+## ⭐ **Like the Project?**
 
-Se o DevEnv Manager te ajudou, considere:
-- ⭐ **Dar uma estrela** no GitHub
-- 🐛 **Reportar bugs** ou **sugerir melhorias**
-- 📢 **Compartilhar** com outros desenvolvedores
-- 🤝 **Contribuir** com código ou documentação
+If DevEnv Manager helped you, consider:
+- ⭐ **Star** the GitHub repository
+- 🐛 **Report bugs** or **suggest improvements**
+- 📢 **Share** with other developers
+- 🤝 **Contribute** with code or documentation
 
 ---
 
 <div align="center">
 
-**🚀 Pare de reconfigurar ambientes manualmente - automatize com DevEnv Manager! 🚀**
+**🚀 Stop manually configuring environments - automate with DevEnv Manager! 🚀**
+
+[🇧🇷 Português](README.pt-br.md) | [🇺🇸 English](README.md)
 
 </div>
 
+[🇧🇷 Português](README.pt-br.md) | [🇺🇸 English](README.md)
