@@ -2,16 +2,16 @@
 """
 DevEnv Manager - Main CLI Interface
 """
+from datetime import datetime
+
 import click
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
-from rich.text import Text
-from datetime import datetime
 
-from ..storage.local import storage
 from ..core.detector import detector
 from ..core.restorer import restorer
+from ..storage.local import storage
 
 console = Console()
 
@@ -19,7 +19,6 @@ console = Console()
 @click.version_option(version="0.1.0")
 def cli():
     """DevEnv Manager - Manage your development environments with ease!"""
-    pass
 
 @cli.command()
 def init():
@@ -409,10 +408,10 @@ def clean():
 
 from ..core.sync import git_sync
 
+
 @cli.group()
 def sync():
     """Git-based synchronization commands"""
-    pass
 
 @sync.command()
 @click.argument('repo_url')
