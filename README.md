@@ -49,7 +49,7 @@ git config --global user.name...                      # Git configs
 
 **✅ Com DevEnv Manager (30 minutos):**
 ```bash
-pip install devenv-manager==0.1.1
+pip install devenv-manager
 devm restore "meu-ambiente-completo"
 # ☕ Vai tomar um café - tudo automatizado!
 ```
@@ -61,7 +61,7 @@ devm restore "meu-ambiente-completo"
 ### **Método 1: Instalação Direta (Recomendado)**
 ```bash
 # Em desenvolvimento - será disponibilizado no PyPI
-pip install devenv-manager==0.1.1
+pip install devenv-manager
 ```
 
 ### **Método 2: Instalação Manual**
