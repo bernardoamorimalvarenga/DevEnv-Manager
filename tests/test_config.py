@@ -4,7 +4,7 @@ import shutil
 import tempfile
 from pathlib import Path
 
-from devenv.core.config import Config
+from envforge.core.config import Config
 
 
 def test_config_creation():

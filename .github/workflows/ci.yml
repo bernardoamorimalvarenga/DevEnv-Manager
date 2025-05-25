@@ -31,18 +31,18 @@ jobs:
     - name: Auto-fix code style
       run: |
         # Remove unused imports
-        autoflake --remove-all-unused-imports --recursive --in-place src/devenv/
+        autoflake --remove-all-unused-imports --recursive --in-place src/envforge/
         # Format code
-        black src/devenv/ tests/ --line-length 79
+        black src/envforge/ tests/ --line-length 79
         # Sort imports
-        isort src/devenv/ tests/
+        isort src/envforge/ tests/
     
     - name: Run linting
       run: |
         # Stop on first error for critical issues
-        flake8 src/devenv --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 src/envforge --count --select=E9,F63,F7,F82 --show-source --statistics
         # Check all issues but don't fail (for now)
-        flake8 src/devenv --count --exit-zero --max-line-length=79 --max-complexity=12 --statistics
+        flake8 src/envforge --count --exit-zero --max-line-length=79 --max-complexity=12 --statistics
 
   test:
     runs-on: ubuntu-latest
@@ -76,7 +76,7 @@ jobs:
       env:
         PYTHONPATH: src
       run: |
-        pytest tests/ -v --cov=devenv --cov-report=xml
+        pytest tests/ -v --cov=envforge --cov-report=xml
     
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
@@ -106,7 +106,7 @@ jobs:
       run: safety check --ignore 70612
     
     - name: Run bandit security linter
-      run: bandit -r src/devenv/ -f json -o bandit-report.json || true
+      run: bandit -r src/envforge/ -f json -o bandit-report.json || true
     
     - name: Upload bandit report
       uses: actions/upload-artifact@v3

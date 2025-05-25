@@ -1,16 +1,16 @@
 Usage Guide
 Basic Workflow
 
-Initialize: devenv init
-Capture: devenv capture "my-environment"
-Restore: devenv restore "my-environment"
+Initialize: envforge init
+Capture: envforge capture "my-environment"
+Restore: envforge restore "my-environment"
 
 Git Synchronization
 bash# Setup
-devenv sync setup git@github.com:user/private-repo.git
+envforge sync setup git@github.com:user/private-repo.git
 
 # Push/Pull
-devenv sync push
-devenv sync pull
+envforge sync push
+envforge sync pull
 Advanced Examples
 See main README.md for detailed examples.

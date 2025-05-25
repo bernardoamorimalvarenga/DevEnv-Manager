@@ -5,21 +5,21 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="devenv-manager",
+    name="envforge",
     version="0.1.2",
-    description="Development Environment Manager for Linux - Backup, sync and restore your dev environment in minutes",
+    description="EnvForge - Forge, sync and restore complete development environments in minutes",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Bernardo Amorim Alvarenga",
     author_email="amorimbernardogame@gmail.com",
-    url="https://github.com/bernardoamorimalvarenga/devenv-manager",
+    url="https://github.com/bernardoamorimalvarenga/envforge",
     
     # Links importantes que aparecem no PyPI
     project_urls={
-        "Bug Reports": "https://github.com/bernardoamorimalvarenga/devenv-manager/issues",
-        "Source": "https://github.com/bernardoamorimalvarenga/devenv-manager",
-        "Documentation": "https://github.com/bernardoamorimalvarenga/devenv-manager#readme",
-        "Changelog": "https://github.com/bernardoamorimalvarenga/devenv-manager/blob/main/CHANGELOG.md",
+        "Bug Reports": "https://github.com/bernardoamorimalvarenga/envforge/issues",
+        "Source": "https://github.com/bernardoamorimalvarenga/envforge",
+        "Documentation": "https://github.com/bernardoamorimalvarenga/envforge#readme",
+        "Changelog": "https://github.com/bernardoamorimalvarenga/envforge/blob/main/CHANGELOG.md",
     },
     
     packages=find_packages(where="src"),
@@ -46,7 +46,7 @@ setup(
     
     entry_points={
         "console_scripts": [
-            "devm=devenv.cli.main:cli",
+            "envforge=envforge.cli.main:cli",
         ],
     },
     
@@ -71,7 +71,7 @@ setup(
         "Environment :: Console",
     ],
     
-    keywords="linux development environment backup sync cli devops dotfiles packages git automation",
+    keywords="linux development environment backup sync cli devops dotfiles packages git automation envforge",
     
     # Metadados adicionais para melhor descoberta
     platforms=["Linux"],

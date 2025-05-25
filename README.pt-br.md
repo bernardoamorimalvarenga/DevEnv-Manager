@@ -1,10 +1,7 @@
-# 🚀 DevEnv Manager
+# 🔥 EnvForge
 
-**Salve, sincronize e restaure ambientes de desenvolvimento completos em minutos**
+**Forje, sincronize e restaure ambientes de desenvolvimento completos em minutos**
 
-![PyPI](https://img.shields.io/pypi/v/devenv-manager)
-![Downloads](https://img.shields.io/pypi/dm/devenv-manager)
-![GitHub Stars](https://img.shields.io/github/stars/bernardoamorimalvarenga/devenv-manager)
 ![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Linux-green.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
@@ -14,7 +11,7 @@
 
 ## 🎯 **O Que É?**
 
-O DevEnv Manager é uma ferramenta CLI que resolve um dos maiores problemas dos desenvolvedores: **reconfigurar ambientes de desenvolvimento do zero**.
+O EnvForge é uma ferramenta CLI que resolve um dos maiores problemas dos desenvolvedores: **reconfigurar ambientes de desenvolvimento do zero**.
 
 Em vez de passar dias instalando pacotes, configurando dotfiles e extensões toda vez que você:
 - 💻 Compra um laptop novo
@@ -22,13 +19,13 @@ Em vez de passar dias instalando pacotes, configurando dotfiles e extensões tod
 - 👥 Precisa padronizar a equipe
 - 🏠 Quer sincronizar casa/trabalho
 
-**Você simplesmente restaura tudo automaticamente!**
+**Você simplesmente restaura tudo automaticamente com EnvForge!**
 
 ---
 
-## 🆚 **DevEnv Manager vs Outras Ferramentas**
+## 🆚 **EnvForge vs Outras Ferramentas**
 
-| | DevEnv Manager | Git/GitHub | Docker | Dotfiles Repos |
+| | EnvForge | Git/GitHub | Docker | Dotfiles Repos |
 |---|---|---|---|---|
 | **O que gerencia** | 🖥️ **Ambiente completo** | 📝 Código fonte | 📦 Containers isolados | 📄 Apenas configs |
 | **Instala pacotes** | ✅ 271 pacotes APT | ❌ | ❌ | ❌ |
@@ -48,10 +45,10 @@ git config --global user.name...                      # Git configs
 # ... centenas de passos manuais
 ```
 
-**✅ Com DevEnv Manager (30 minutos):**
+**✅ Com EnvForge (30 minutos):**
 ```bash
-pip install devenv-manager==0.1.1
-devm restore "meu-ambiente-completo"
+pip install envforge
+envforge restore "meu-ambiente-completo"
 # ☕ Vai tomar um café - tudo automatizado!
 ```
 
@@ -61,15 +58,15 @@ devm restore "meu-ambiente-completo"
 
 ### **Método 1: Instalação Direta (Recomendado)**
 ```bash
-# Em desenvolvimento - será disponibilizado no PyPI
-pip install devenv-manager==0.1.1
+# Instalar via PyPI
+pip install envforge
 ```
 
 ### **Método 2: Instalação Manual**
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/devenv-manager.git
-cd devenv-manager
+git clone https://github.com/bernardoamorimalvarenga/envforge.git
+cd envforge
 
 # Crie ambiente virtual
 python -m venv .venv
@@ -79,7 +76,7 @@ source .venv/bin/activate
 pip install -e .
 
 # Teste a instalação
-devm --help
+envforge --help
 ```
 
 ### **Requisitos do Sistema:**
@@ -95,22 +92,22 @@ devm --help
 ### **1. Primeira Configuração**
 
 ```bash
-# Inicialize o DevEnv Manager
-devm init
+# Inicialize o EnvForge
+envforge init
 
 # ✅ Saída:
-# 🚀 DevEnv Manager initialized successfully!
-# Config stored in: /home/usuario/.devenv
+# 🔥 EnvForge initialized successfully!
+# Config stored in: /home/usuario/.envforge
 ```
 
 ### **2. Capturar Seu Ambiente Atual**
 
 ```bash
 # Capture tudo que está instalado e configurado
-devm capture "meu-setup-$(date +%Y%m%d)"
+envforge capture "meu-setup-$(date +%Y%m%d)"
 
 # ✅ Saída exemplo:
-# 📸 Capturing environment: meu-setup-20241201
+# 🔥 Capturing environment: meu-setup-20241201
 # ✓ Detecting system configuration...
 # 
 # ┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
@@ -130,7 +127,7 @@ devm capture "meu-setup-$(date +%Y%m%d)"
 
 ```bash
 # Liste todos os ambientes capturados
-devm list
+envforge list
 
 # ✅ Saída exemplo:
 # ┏━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━┓
@@ -146,7 +143,7 @@ devm list
 
 ```bash
 # Veja o que contém um ambiente específico
-devm show "meu-setup-20241201"
+envforge show "meu-setup-20241201"
 
 # ✅ Saída exemplo:
 # 📋 Environment Details: meu-setup-20241201
@@ -176,7 +173,7 @@ devm show "meu-setup-20241201"
 #### **Preview Seguro (Dry Run):**
 ```bash
 # Veja o que será feito SEM aplicar mudanças
-devm restore "meu-setup-20241201" --dry-run
+envforge restore "meu-setup-20241201" --dry-run
 
 # ✅ Saída exemplo:
 # 🔍 DRY RUN MODE - No changes will be made
@@ -191,10 +188,10 @@ devm restore "meu-setup-20241201" --dry-run
 #### **Restauração Real:**
 ```bash
 # Restaure o ambiente (VAI INSTALAR OS PACOTES)
-devm restore "meu-setup-20241201"
+envforge restore "meu-setup-20241201"
 
 # ✅ Processo interativo:
-# 🔄 Restoring environment: meu-setup-20241201
+# 🔥 Restoring environment: meu-setup-20241201
 # 
 # ┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
 # ┃ Type               ┃ Count ┃
@@ -210,7 +207,7 @@ devm restore "meu-setup-20241201"
 # 📦 Installing APT packages...
 # ✓ APT packages installed successfully
 # 📝 Restoring dotfiles...
-# Backed up existing .bashrc to .bashrc.devenv-backup
+# Backed up existing .bashrc to .bashrc.envforge-backup
 # ✓ Restored .bashrc
 # ✓ Restored .vimrc
 # 🔌 Installing VS Code extensions...
@@ -226,19 +223,19 @@ devm restore "meu-setup-20241201"
 
 ```bash
 # Configure sincronização com repositório privado
-devm sync setup git@github.com:seu-usuario/devenv-private.git
+envforge sync setup git@github.com:seu-usuario/envforge-private.git
 
 # ✅ Saída:
-# 🔧 Setting up git sync with git@github.com:seu-usuario/devenv-private.git
+# 🔧 Setting up git sync with git@github.com:seu-usuario/envforge-private.git
 # 
 # ╭─ Sync Ready ─╮
 # │ Git sync setup complete! │
 # │                          │
-# │ Repository: git@github.com:seu-usuario/devenv-private.git │
+# │ Repository: git@github.com:seu-usuario/envforge-private.git │
 # │ Branch: main             │
 # │                          │
-# │ Use 'devm sync push' to upload environments │
-# │ Use 'devm sync pull' to download environments │
+# │ Use 'envforge sync push' to upload environments │
+# │ Use 'envforge sync pull' to download environments │
 # ╰──────────────╯
 ```
 
@@ -246,13 +243,13 @@ devm sync setup git@github.com:seu-usuario/devenv-private.git
 
 ```bash
 # Envie todos os ambientes para o repositório
-devm sync push
+envforge sync push
 
 # Envie apenas um ambiente específico
-devm sync push -e "meu-setup-20241201"
+envforge sync push -e "meu-setup-20241201"
 
 # Envie múltiplos ambientes
-devm sync push -e "ambiente1" -e "ambiente2"
+envforge sync push -e "ambiente1" -e "ambiente2"
 
 # ✅ Saída exemplo:
 # 📤 Pushing specific environments: meu-setup-20241201
@@ -263,7 +260,7 @@ devm sync push -e "ambiente1" -e "ambiente2"
 
 ```bash
 # Baixe ambientes do repositório
-devm sync pull
+envforge sync pull
 
 # ✅ Saída exemplo:
 # 📥 Pulling environments from remote...
@@ -276,14 +273,14 @@ devm sync pull
 
 ```bash
 # Veja status do sync
-devm sync status
+envforge sync status
 
 # ✅ Saída exemplo:
 # ┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 # ┃ Property           ┃ Value                                               ┃
 # ┡━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
 # │ Status             │ ✓ Enabled                                          │
-# │ Remote URL         │ git@github.com:seu-usuario/devenv-private.git     │
+# │ Remote URL         │ git@github.com:seu-usuario/envforge-private.git   │
 # │ Branch             │ main                                               │
 # │ Uncommitted Changes │ No                                                │
 # │ Last Commit        │ abc123 - Sync 2 environments                      │
@@ -297,52 +294,52 @@ devm sync status
 ### **🆕 Caso 1: Laptop Novo**
 ```bash
 # Na máquina antiga:
-devm capture "meu-setup-completo"
-devm sync push
+envforge capture "meu-setup-completo"
+envforge sync push
 
 # Na máquina nova:
-pip install devenv-manager
-devm init
-devm sync setup git@github.com:seu-usuario/devenv-private.git
-devm sync pull
-devm restore "meu-setup-completo"
+pip install envforge
+envforge init
+envforge sync setup git@github.com:seu-usuario/envforge-private.git
+envforge sync pull
+envforge restore "meu-setup-completo"
 # ☕ 30 minutos depois: ambiente idêntico!
 ```
 
 ### **👥 Caso 2: Onboarding de Equipe**
 ```bash
 # Setup da empresa (feito uma vez pelo tech lead):
-devm capture "empresa-dev-env-2024"  
-devm sync push
+envforge capture "empresa-dev-env-2024"  
+envforge sync push
 
 # Novo desenvolvedor:
-devm sync pull
-devm restore "empresa-dev-env-2024"
+envforge sync pull
+envforge restore "empresa-dev-env-2024"
 # 🎉 Ambiente padronizado automaticamente!
 ```
 
 ### **🏠 Caso 3: Sincronização Casa/Trabalho**
 ```bash
 # No trabalho:
-devm capture "work-setup"
-devm sync push
+envforge capture "work-setup"
+envforge sync push
 
 # Em casa:
-devm sync pull
-devm restore "work-setup" 
+envforge sync pull
+envforge restore "work-setup" 
 # 🔄 Mesmo ambiente em casa!
 ```
 
 ### **🔄 Caso 4: Backup/Disaster Recovery**
 ```bash
 # Backup regular:
-devm capture "backup-$(date +%Y%m%d)"
-devm sync push
+envforge capture "backup-$(date +%Y%m%d)"
+envforge sync push
 
 # Depois de problema/formatação:
-devm sync pull
-devm list  # Ver backups disponíveis
-devm restore "backup-20241201"
+envforge sync pull
+envforge list  # Ver backups disponíveis
+envforge restore "backup-20241201"
 # 🛡️ Ambiente restaurado!
 ```
 
@@ -352,37 +349,37 @@ devm restore "backup-20241201"
 
 ### **Comandos Básicos:**
 ```bash
-devm init                    # Inicializar DevEnv Manager
-devm capture "nome"          # Capturar ambiente atual
-devm list                    # Listar ambientes salvos
-devm show "nome"             # Mostrar detalhes do ambiente  
-devm restore "nome"          # Restaurar ambiente
-devm delete "nome"           # Deletar ambiente
-devm status                  # Status do sistema atual
+envforge init                    # Inicializar EnvForge
+envforge capture "nome"          # Capturar ambiente atual
+envforge list                    # Listar ambientes salvos
+envforge show "nome"             # Mostrar detalhes do ambiente  
+envforge restore "nome"          # Restaurar ambiente
+envforge delete "nome"           # Deletar ambiente
+envforge status                  # Status do sistema atual
 ```
 
 ### **Comandos de Sync:**
 ```bash
-devm sync setup <repo-url>   # Configurar sincronização Git
-devm sync push               # Enviar todos os ambientes
-devm sync push -e "nome"     # Enviar ambiente específico
-devm sync pull               # Baixar ambientes do repositório
-devm sync status             # Status da sincronização
+envforge sync setup <repo-url>   # Configurar sincronização Git
+envforge sync push               # Enviar todos os ambientes
+envforge sync push -e "nome"     # Enviar ambiente específico
+envforge sync pull               # Baixar ambientes do repositório
+envforge sync status             # Status da sincronização
 ```
 
 ### **Comandos Utilitários:**
 ```bash
-devm export "nome" arquivo.json    # Exportar para arquivo
-devm import-env arquivo.json       # Importar de arquivo
-devm diff "env1" "env2"           # Comparar ambientes
-devm clean                        # Limpar backups antigos
+envforge export "nome" arquivo.json    # Exportar para arquivo
+envforge import-env arquivo.json       # Importar de arquivo
+envforge diff "env1" "env2"           # Comparar ambientes
+envforge clean                        # Limpar backups antigos
 ```
 
 ### **Opções Úteis:**
 ```bash
-devm restore "nome" --dry-run     # Preview sem aplicar mudanças
-devm restore "nome" --force       # Pular confirmações
-devm delete "nome" --force        # Deletar sem confirmação
+envforge restore "nome" --dry-run     # Preview sem aplicar mudanças
+envforge restore "nome" --force       # Pular confirmações
+envforge delete "nome" --force        # Deletar sem confirmação
 ```
 
 ---
@@ -454,16 +451,16 @@ devm delete "nome" --force        # Deletar sem confirmação
 ### **🛡️ Boas Práticas:**
 ```bash
 # ✅ Use repositório privado
-devm sync setup git@github.com:seu-usuario/devenv-PRIVATE.git
+envforge sync setup git@github.com:seu-usuario/envforge-PRIVATE.git
 
 # ✅ Sempre faça preview primeiro
-devm restore "ambiente" --dry-run
+envforge restore "ambiente" --dry-run
 
 # ✅ Backup manual antes de grandes mudanças
 cp ~/.bashrc ~/.bashrc.backup-$(date +%s)
 
 # ✅ Revise o que será instalado
-devm show "ambiente"
+envforge show "ambiente"
 ```
 
 ---
@@ -493,16 +490,16 @@ devm show "ambiente"
 sudo echo "teste"
 
 # Execute com confirmação
-devm restore "ambiente" --force
+envforge restore "ambiente" --force
 ```
 
 #### **"Git sync failed":**
 ```bash
 # Verifique se o repositório é privado e você tem acesso
-git clone git@github.com:seu-usuario/devenv-private.git
+git clone git@github.com:seu-usuario/envforge-private.git
 
 # Reconfigure se necessário
-devm sync setup git@github.com:seu-usuario/devenv-private.git
+envforge sync setup git@github.com:seu-usuario/envforge-private.git
 ```
 
 #### **"VS Code extensions failed":**
@@ -511,19 +508,19 @@ devm sync setup git@github.com:seu-usuario/devenv-private.git
 code --version
 
 # Instale manualmente se necessário
-devm show "ambiente"  # Ver lista de extensões
+envforge show "ambiente"  # Ver lista de extensões
 ```
 
 ### **Logs e Debug:**
 ```bash
 # Ver status detalhado
-devm status
+envforge status
 
 # Verificar arquivos de config
-ls -la ~/.devenv/
+ls -la ~/.envforge/
 
 # Preview antes de aplicar
-devm restore "ambiente" --dry-run
+envforge restore "ambiente" --dry-run
 ```
 
 ---
@@ -595,7 +592,7 @@ Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICEN
 
 ## ⭐ **Gostou do Projeto?**
 
-Se o DevEnv Manager te ajudou, considere:
+Se o EnvForge te ajudou, considere:
 - ⭐ **Dar uma estrela** no GitHub
 - 🐛 **Reportar bugs** ou **sugerir melhorias**
 - 📢 **Compartilhar** com outros desenvolvedores
@@ -605,9 +602,9 @@ Se o DevEnv Manager te ajudou, considere:
 
 <div align="center">
 
-**🚀 Pare de reconfigurar ambientes manualmente - automatize com DevEnv Manager! 🚀**
+**🔥 Pare de reconfigurar ambientes manualmente - forje com EnvForge! 🔥**
+
+ [🇧🇷 Português](README.pt-br.md) | [🇺🇸 English](README.md)
 
 </div>
 
-
-[🇧🇷 Português](README.pt-br.md) | [🇺🇸 English](README.md)

@@ -1,11 +1,11 @@
-# Contributing to DevEnv Manager
+# Contributing to EnvForge
 
-🎉 Thank you for considering contributing to DevEnv Manager!
+🎉 Thank you for considering contributing to EnvForge!
 
 ## 🚀 Quick Start
 
 1. **Fork** the repository
-2. **Clone** your fork: `git clone https://github.com/YOUR-USERNAME/devenv-manager.git`
+2. **Clone** your fork: `git clone https://github.com/YOUR-USERNAME/envforge.git`
 3. **Create** a virtual environment: `python -m venv .venv && source .venv/bin/activate`
 4. **Install** dependencies: `pip install -e .`
 5. **Create** a branch: `git checkout -b feature/your-feature-name`
@@ -20,57 +20,60 @@ pip install -e ".[dev]"
 pytest
 
 # Run with coverage
-pytest --cov=src/devenv
-📝 Code Style
+pytest --cov=src/envforge
+```
 
-Follow PEP 8
-Use type hints where possible
-Write docstrings for functions and classes
-Keep functions focused and small
+## 📝 Code Style
 
-🐛 Reporting Issues
+- Follow PEP 8
+- Use type hints where possible
+- Write docstrings for functions and classes
+- Keep functions focused and small
 
-Use the issue templates
-Include your OS and Python version
-Provide steps to reproduce
-Include error messages and logs
+## 🐛 Reporting Issues
 
-💡 Feature Requests
+- Use the issue templates
+- Include your OS and Python version
+- Provide steps to reproduce
+- Include error messages and logs
 
-Check existing issues first
-Use the feature request template
-Explain the use case clearly
-Consider implementation approach
+## 💡 Feature Requests
 
-📦 Pull Requests
+- Check existing issues first
+- Use the feature request template
+- Explain the use case clearly
+- Consider implementation approach
 
-Keep PRs focused on one feature/fix
-Update tests and documentation
-Ensure CI passes
-Link to relevant issues
+## 📦 Pull Requests
 
-🏷️ Commit Messages
+- Keep PRs focused on one feature/fix
+- Update tests and documentation
+- Ensure CI passes
+- Link to relevant issues
+
+## 🏷️ Commit Messages
 Use conventional commits:
 
-feat: new features
-fix: bug fixes
-docs: documentation changes
-test: testing changes
-refactor: code refactoring
+- `feat`: new features
+- `fix`: bug fixes
+- `docs`: documentation changes
+- `test`: testing changes
+- `refactor`: code refactoring
 
-Example: feat: add Windows support for package detection
-🎯 Areas We Need Help
+Example: `feat: add Windows support for package detection`
 
-Multi-OS Support: Windows/macOS compatibility
-Package Managers: Homebrew, Chocolatey, etc.
-Testing: Unit and integration tests
-Documentation: Examples and guides
-GUI: Desktop interface (PyQt6)
+## 🎯 Areas We Need Help
 
-📞 Getting Help
+- **Multi-OS Support**: Windows/macOS compatibility
+- **Package Managers**: Homebrew, Chocolatey, etc.
+- **Testing**: Unit and integration tests
+- **Documentation**: Examples and guides
+- **GUI**: Desktop interface (PyQt6)
 
-GitHub Discussions for questions
-Issues for bugs and features
-Email: amorimbernardogame@gmail.com
+## 📞 Getting Help
+
+- GitHub Discussions for questions
+- Issues for bugs and features
+- Email: amorimbernardogame@gmail.com
 
 Thanks for contributing! 🚀

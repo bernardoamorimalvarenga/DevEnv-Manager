@@ -3,10 +3,10 @@
 ## Quick Install
 
 ```bash
-pip install devenv-manager
+pip install envforge
 From Source
-bashgit clone https://github.com/bernardoamorimalvarenga/devenv-manager.git
-cd devenv-manager
+bashgit clone https://github.com/bernardoamorimalvarenga/envforge.git
+cd envforge
 pip install -e .
 System Requirements
 
@@ -16,5 +16,5 @@ Git
 sudo privileges
 
 Verification
-bashdevenv --help
-devenv --version
+envforge --help
+envforge --version

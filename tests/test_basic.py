@@ -1,9 +1,9 @@
-"""Basic tests for DevEnv Manager"""
+"""Basic tests for EnvForge"""
 import pytest
 import tempfile
 from pathlib import Path
 from unittest.mock import patch, MagicMock
-from devenv.cli.main import cli
+from envforge.cli.main import cli
 from click.testing import CliRunner
 
 
@@ -12,7 +12,7 @@ def test_cli_help():
     runner = CliRunner()
     result = runner.invoke(cli, ['--help'])
     assert result.exit_code == 0
-    assert 'DevEnv Manager' in result.output
+    assert 'EnvForge' in result.output
 
 
 def test_cli_version():
@@ -35,7 +35,7 @@ def test_list_command_empty():
     runner = CliRunner()
     with runner.isolated_filesystem():
         # Mock storage directly in the main module where it's used
-        with patch('devenv.cli.main.storage') as mock_storage:
+        with patch('envforge.cli.main.storage') as mock_storage:
             mock_storage.list_snapshots.return_value = []
             
             result = runner.invoke(cli, ['list'])
@@ -48,7 +48,7 @@ def test_list_command_with_data():
     runner = CliRunner()
     with runner.isolated_filesystem():
         # Mock storage with sample data
-        with patch('devenv.cli.main.storage') as mock_storage:
+        with patch('envforge.cli.main.storage') as mock_storage:
             mock_storage.list_snapshots.return_value = [
                 {
                     'name': 'test-env',
