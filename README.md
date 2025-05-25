@@ -1,9 +1,7 @@
-# 🚀 DevEnv Manager
+# 🔥 EnvForge
 
-**Save, sync and restore complete development environments in minutes**
+**Forge, sync and restore complete development environments in minutes**
 
-![PyPI](https://img.shields.io/pypi/v/devenv-manager)
-![GitHub Stars](https://img.shields.io/github/stars/bernardoamorimalvarenga/devenv-manager)
 ![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Linux-green.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
@@ -11,59 +9,46 @@
 
 ---
 
-## 🎯 **What Is It?**
+## 🎯 **What is it?**
 
-DevEnv Manager is a CLI tool that solves one of developers' biggest problems: **reconfiguring development environments from scratch**.
+EnvForge is a CLI tool that solves one of developers' biggest problems: **reconfiguring development environments from scratch**.
 
-Instead of spending days installing packages, configuring dotfiles and extensions every time you:
-- 💻 Buy a new laptop
-- 🔄 Format your system  
-- 👥 Need to standardize the team
-- 🏠 Want to sync home/work
+Instead of spending days installing packages, setting up dotfiles and extensions every time you:
+- 💻 Get a new laptop
+- 🔄 Format your system
+- 👥 Need to standardize your team
+- 🏠 Want to sync home/work setups
 
-**You simply restore everything automatically!**
+**You simply restore everything automatically with EnvForge!**
 
 ---
 
-## 🆚 **DevEnv Manager vs Other Tools**
+## 🆚 **EnvForge vs Other Tools**
 
-| | DevEnv Manager | Git/GitHub | Docker | Dotfiles Repos |
+| | EnvForge | Git/GitHub | Docker | Dotfiles Repos |
 |---|---|---|---|---|
 | **What it manages** | 🖥️ **Complete environment** | 📝 Source code | 📦 Isolated containers | 📄 Config files only |
 | **Installs packages** | ✅ 271 APT packages | ❌ | ❌ | ❌ |
-| **Configures system** | ✅ Dotfiles + extensions | ❌ | ❌ | ✅ Configs only |
+| **System configuration** | ✅ Dotfiles + extensions | ❌ | ❌ | ✅ Configs only |
 | **Synchronization** | ✅ Bidirectional Git | ✅ Code only | ❌ | ✅ Configs only |
 | **Use case** | 🛠️ Complete personal setup | 📂 Code projects | 🚀 App deployment | ⚙️ Basic configs |
-
-### **DevEnv Manager vs devenv.sh**
-
-| | DevEnv Manager | devenv.sh |
-|---|---|---|
-| **Approach** | 📸 Capture existing environment | 📝 Declare from scratch |
-| **Technology** | 🐍 Python + Linux tools | ❄️ Nix ecosystem |
-| **Complexity** | 🟢 Simple - one command | 🔴 Complex - requires Nix |
-| **Installation** | `pip install devenv-manager` | Nix + configuration |
-| **Command** | `devm capture`, `devm restore` | `devenv shell` |
-| **Target audience** | 👨‍💻 Beginner/intermediate devs | 🧙‍♂️ Advanced Nix users |
-| **Use case** | 🔄 Backup/sync existing environments | 🏗️ Reproducible environments |
-| **Learning curve** | 5 minutes | Weeks (Nix) |
 
 ### **Practical Example:**
 
 **❌ Current Situation (2 days of work):**
 ```bash
-# New/formatted laptop:
-sudo apt update && sudo apt install git curl vim...    # 271+ packages manually
+# New/reformatted laptop:
+sudo apt update && sudo apt install git curl vim...    # 271 packages manually
 code --install-extension ms-python.python...          # 15+ VS Code extensions  
 cp dotfiles/.bashrc ~/.bashrc                         # Configure terminal
 git config --global user.name...                      # Git configs
 # ... hundreds of manual steps
 ```
 
-**✅ With DevEnv Manager (30 minutes):**
+**✅ With EnvForge (30 minutes):**
 ```bash
-pip install devenv-manager
-devm restore "my-complete-environment"
+pip install envforge
+envforge restore "my-complete-environment"
 # ☕ Go grab a coffee - everything automated!
 ```
 
@@ -73,14 +58,15 @@ devm restore "my-complete-environment"
 
 ### **Method 1: Direct Installation (Recommended)**
 ```bash
-pip install devenv-manager
+# Install via PyPI
+pip install envforge
 ```
 
 ### **Method 2: Manual Installation**
 ```bash
 # Clone the repository
-git clone https://github.com/bernardoamorimalvarenga/devenv-manager.git
-cd devenv-manager
+git clone https://github.com/bernardoamorimalvarenga/envforge.git
+cd envforge
 
 # Create virtual environment
 python -m venv .venv
@@ -90,7 +76,7 @@ source .venv/bin/activate
 pip install -e .
 
 # Test installation
-devm --help
+envforge --help
 ```
 
 ### **System Requirements:**
@@ -106,22 +92,22 @@ devm --help
 ### **1. Initial Setup**
 
 ```bash
-# Initialize DevEnv Manager
-devm init
+# Initialize EnvForge
+envforge init
 
 # ✅ Output:
-# 🚀 DevEnv Manager initialized successfully!
-# Config stored in: /home/user/.devenv
+# 🔥 EnvForge initialized successfully!
+# Config stored in: /home/user/.envforge
 ```
 
 ### **2. Capture Your Current Environment**
 
 ```bash
-# Capture everything that's installed and configured
-devm capture "my-setup-$(date +%Y%m%d)"
+# Capture everything installed and configured
+envforge capture "my-setup-$(date +%Y%m%d)"
 
 # ✅ Example output:
-# 📸 Capturing environment: my-setup-20241201
+# 🔥 Capturing environment: my-setup-20241201
 # ✓ Detecting system configuration...
 # 
 # ┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
@@ -141,7 +127,7 @@ devm capture "my-setup-$(date +%Y%m%d)"
 
 ```bash
 # List all captured environments
-devm list
+envforge list
 
 # ✅ Example output:
 # ┏━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━┓
@@ -149,7 +135,7 @@ devm list
 # ┡━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━┩
 # │ my-setup-20241201    │ 2024-12-01 14:30│ my-setup-20241201.json │
 # │ work-environment     │ 2024-11-28 09:15│ work-environment.json  │
-# │ complete-setup       │ 2024-11-25 16:45│ complete-setup.json     │
+# │ complete-setup       │ 2024-11-25 16:45│ complete-setup.json    │
 # └──────────────────────┴─────────────────┴─────────────────────────┘
 ```
 
@@ -157,7 +143,7 @@ devm list
 
 ```bash
 # See what a specific environment contains
-devm show "my-setup-20241201"
+envforge show "my-setup-20241201"
 
 # ✅ Example output:
 # 📋 Environment Details: my-setup-20241201
@@ -187,7 +173,7 @@ devm show "my-setup-20241201"
 #### **Safe Preview (Dry Run):**
 ```bash
 # See what will be done WITHOUT applying changes
-devm restore "my-setup-20241201" --dry-run
+envforge restore "my-setup-20241201" --dry-run
 
 # ✅ Example output:
 # 🔍 DRY RUN MODE - No changes will be made
@@ -202,10 +188,10 @@ devm restore "my-setup-20241201" --dry-run
 #### **Actual Restoration:**
 ```bash
 # Restore the environment (WILL INSTALL PACKAGES)
-devm restore "my-setup-20241201"
+envforge restore "my-setup-20241201"
 
 # ✅ Interactive process:
-# 🔄 Restoring environment: my-setup-20241201
+# 🔥 Restoring environment: my-setup-20241201
 # 
 # ┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
 # ┃ Type               ┃ Count ┃
@@ -221,7 +207,7 @@ devm restore "my-setup-20241201"
 # 📦 Installing APT packages...
 # ✓ APT packages installed successfully
 # 📝 Restoring dotfiles...
-# Backed up existing .bashrc to .bashrc.devenv-backup
+# Backed up existing .bashrc to .bashrc.envforge-backup
 # ✓ Restored .bashrc
 # ✓ Restored .vimrc
 # 🔌 Installing VS Code extensions...
@@ -233,48 +219,48 @@ devm restore "my-setup-20241201"
 
 ## 🔄 **Git Synchronization (Multi-machine)**
 
-### **Initial Setup (One time)**
+### **Initial Setup (Once)**
 
 ```bash
 # Configure synchronization with private repository
-devm sync setup git@github.com:your-username/devenv-private.git
+envforge sync setup git@github.com:your-user/envforge-private.git
 
 # ✅ Output:
-# 🔧 Setting up git sync with git@github.com:your-username/devenv-private.git
+# 🔧 Setting up git sync with git@github.com:your-user/envforge-private.git
 # 
 # ╭─ Sync Ready ─╮
 # │ Git sync setup complete! │
 # │                          │
-# │ Repository: git@github.com:your-username/devenv-private.git │
+# │ Repository: git@github.com:your-user/envforge-private.git │
 # │ Branch: main             │
 # │                          │
-# │ Use 'devm sync push' to upload environments │
-# │ Use 'devm sync pull' to download environments │
+# │ Use 'envforge sync push' to upload environments │
+# │ Use 'envforge sync pull' to download environments │
 # ╰──────────────╯
 ```
 
 ### **Pushing Environments**
 
 ```bash
-# Push all environments to repository
-devm sync push
+# Send all environments to repository
+envforge sync push
 
-# Push only a specific environment
-devm sync push -e "my-setup-20241201"
+# Send only a specific environment
+envforge sync push -e "my-setup-20241201"
 
-# Push multiple environments
-devm sync push -e "environment1" -e "environment2"
+# Send multiple environments
+envforge sync push -e "environment1" -e "environment2"
 
 # ✅ Example output:
 # 📤 Pushing specific environments: my-setup-20241201
 # ✓ Successfully pushed 1 specific environments
 ```
 
-### **Pulling Environments**
+### **Downloading Environments**
 
 ```bash
 # Download environments from repository
-devm sync pull
+envforge sync pull
 
 # ✅ Example output:
 # 📥 Pulling environments from remote...
@@ -283,18 +269,18 @@ devm sync pull
 # ✓ Successfully imported 2 environments
 ```
 
-### **Sync Status**
+### **Synchronization Status**
 
 ```bash
 # View sync status
-devm sync status
+envforge sync status
 
 # ✅ Example output:
 # ┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 # ┃ Property           ┃ Value                                               ┃
 # ┡━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
 # │ Status             │ ✓ Enabled                                          │
-# │ Remote URL         │ git@github.com:your-username/devenv-private.git   │
+# │ Remote URL         │ git@github.com:your-user/envforge-private.git     │
 # │ Branch             │ main                                               │
 # │ Uncommitted Changes │ No                                                │
 # │ Last Commit        │ abc123 - Sync 2 environments                      │
@@ -308,52 +294,52 @@ devm sync status
 ### **🆕 Case 1: New Laptop**
 ```bash
 # On old machine:
-devm capture "my-complete-setup"
-devm sync push
+envforge capture "my-complete-setup"
+envforge sync push
 
 # On new machine:
-pip install devenv-manager
-devm init
-devm sync setup git@github.com:your-username/devenv-private.git
-devm sync pull
-devm restore "my-complete-setup"
+pip install envforge
+envforge init
+envforge sync setup git@github.com:your-user/envforge-private.git
+envforge sync pull
+envforge restore "my-complete-setup"
 # ☕ 30 minutes later: identical environment!
 ```
 
 ### **👥 Case 2: Team Onboarding**
 ```bash
 # Company setup (done once by tech lead):
-devm capture "company-dev-env-2024"  
-devm sync push
+envforge capture "company-dev-env-2024"  
+envforge sync push
 
 # New developer:
-devm sync pull
-devm restore "company-dev-env-2024"
+envforge sync pull
+envforge restore "company-dev-env-2024"
 # 🎉 Standardized environment automatically!
 ```
 
-### **🏠 Case 3: Home/Work Sync**
+### **🏠 Case 3: Home/Work Synchronization**
 ```bash
 # At work:
-devm capture "work-setup"
-devm sync push
+envforge capture "work-setup"
+envforge sync push
 
 # At home:
-devm sync pull
-devm restore "work-setup" 
+envforge sync pull
+envforge restore "work-setup" 
 # 🔄 Same environment at home!
 ```
 
 ### **🔄 Case 4: Backup/Disaster Recovery**
 ```bash
 # Regular backup:
-devm capture "backup-$(date +%Y%m%d)"
-devm sync push
+envforge capture "backup-$(date +%Y%m%d)"
+envforge sync push
 
-# After problem/formatting:
-devm sync pull
-devm list  # See available backups
-devm restore "backup-20241201"
+# After problem/reformatting:
+envforge sync pull
+envforge list  # View available backups
+envforge restore "backup-20241201"
 # 🛡️ Environment restored!
 ```
 
@@ -363,37 +349,37 @@ devm restore "backup-20241201"
 
 ### **Basic Commands:**
 ```bash
-devm init                    # Initialize DevEnv Manager
-devm capture "name"          # Capture current environment
-devm list                    # List saved environments
-devm show "name"             # Show environment details  
-devm restore "name"          # Restore environment
-devm delete "name"           # Delete environment
-devm status                  # Current system status
+envforge init                    # Initialize EnvForge
+envforge capture "name"          # Capture current environment
+envforge list                    # List saved environments
+envforge show "name"             # Show environment details  
+envforge restore "name"          # Restore environment
+envforge delete "name"           # Delete environment
+envforge status                  # Current system status
 ```
 
 ### **Sync Commands:**
 ```bash
-devm sync setup <repo-url>   # Configure Git synchronization
-devm sync push               # Push all environments
-devm sync push -e "name"     # Push specific environment
-devm sync pull               # Download environments from repository
-devm sync status             # Synchronization status
+envforge sync setup <repo-url>   # Configure Git synchronization
+envforge sync push               # Send all environments
+envforge sync push -e "name"     # Send specific environment
+envforge sync pull               # Download environments from repository
+envforge sync status             # Synchronization status
 ```
 
 ### **Utility Commands:**
 ```bash
-devm export "name" file.json    # Export to file
-devm import-env file.json       # Import from file
-devm diff "env1" "env2"         # Compare environments
-devm clean                      # Clean old backups
+envforge export "name" file.json    # Export to file
+envforge import-env file.json       # Import from file
+envforge diff "env1" "env2"         # Compare environments
+envforge clean                      # Clean old backups
 ```
 
 ### **Useful Options:**
 ```bash
-devm restore "name" --dry-run     # Preview without applying changes
-devm restore "name" --force       # Skip confirmations
-devm delete "name" --force        # Delete without confirmation
+envforge restore "name" --dry-run     # Preview without applying changes
+envforge restore "name" --force       # Skip confirmations
+envforge delete "name" --force        # Delete without confirmation
 ```
 
 ---
@@ -435,7 +421,7 @@ devm delete "name" --force        # Delete without confirmation
     "pip": ["requests", "flask", "django"]
   },
   "dotfiles": {
-    ".bashrc": "# Content of .bashrc...",
+    ".bashrc": "# .bashrc content...",
     ".vimrc": "# Vim configurations..."
   },
   "vscode_extensions": [
@@ -450,13 +436,13 @@ devm delete "name" --force        # Delete without confirmation
 ## 🔒 **Security**
 
 ### **✅ Secure Settings:**
-- **SSH keys** not captured by default
-- **Automatic backups** of existing files before replacing
-- **Dry-run mode** for safe preview
+- **SSH keys** are not captured by default
+- **Automatic backups** of existing files before replacement
+- **Dry-run mode** for safe previews
 - **Confirmations** before important changes
 - **Private repositories** recommended for sync
 
-### **⚠️ Important Precautions:**
+### **⚠️ Important Considerations:**
 - **Use private repositories** for sensitive data
 - **Review snapshots** before sharing
 - **Dotfiles may contain personal information**
@@ -465,16 +451,16 @@ devm delete "name" --force        # Delete without confirmation
 ### **🛡️ Best Practices:**
 ```bash
 # ✅ Use private repository
-devm sync setup git@github.com:your-username/devenv-PRIVATE.git
+envforge sync setup git@github.com:your-user/envforge-PRIVATE.git
 
 # ✅ Always preview first
-devm restore "environment" --dry-run
+envforge restore "environment" --dry-run
 
 # ✅ Manual backup before major changes
 cp ~/.bashrc ~/.bashrc.backup-$(date +%s)
 
 # ✅ Review what will be installed
-devm show "environment"
+envforge show "environment"
 ```
 
 ---
@@ -504,16 +490,16 @@ devm show "environment"
 sudo echo "test"
 
 # Execute with confirmation
-devm restore "environment" --force
+envforge restore "environment" --force
 ```
 
 #### **"Git sync failed":**
 ```bash
 # Check if repository is private and you have access
-git clone git@github.com:your-username/devenv-private.git
+git clone git@github.com:your-user/envforge-private.git
 
 # Reconfigure if necessary
-devm sync setup git@github.com:your-username/devenv-private.git
+envforge sync setup git@github.com:your-user/envforge-private.git
 ```
 
 #### **"VS Code extensions failed":**
@@ -522,19 +508,19 @@ devm sync setup git@github.com:your-username/devenv-private.git
 code --version
 
 # Install manually if necessary
-devm show "environment"  # See extensions list
+envforge show "environment"  # View extension list
 ```
 
 ### **Logs and Debug:**
 ```bash
 # View detailed status
-devm status
+envforge status
 
 # Check config files
-ls -la ~/.devenv/
+ls -la ~/.envforge/
 
 # Preview before applying
-devm restore "environment" --dry-run
+envforge restore "environment" --dry-run
 ```
 
 ---
@@ -545,9 +531,9 @@ Contributions are welcome!
 
 ### **How to Contribute:**
 1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/new-feature`)
-3. **Commit** your changes (`git commit -am 'Add new feature'`)
-4. **Push** to the branch (`git push origin feature/new-feature`)
+2. **Create** a branch for your feature (`git checkout -b feature/new-functionality`)
+3. **Commit** your changes (`git commit -am 'Add new functionality'`)
+4. **Push** to the branch (`git push origin feature/new-functionality`)
 5. **Open** a Pull Request
 
 ### **Areas That Need Help:**
@@ -563,7 +549,7 @@ Contributions are welcome!
 
 ### **v0.2.0 - Security** (Next 4 weeks)
 - [ ] Snapshot encryption
-- [ ] Safe packages list (whitelist)
+- [ ] Safe package list (whitelist)
 - [ ] Sensitive data filtering
 - [ ] Integrity verification
 
@@ -589,7 +575,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 **Author**
 
-**Bernardo Amorim Alvarenga**
+**Bernardo**
 - GitHub: [@bernardoamorimalvarenga](https://github.com/bernardoamorimalvarenga)
 - Email: amorimbernardogame@gmail.com
 
@@ -598,7 +584,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 **Acknowledgments**
 
 - **Click** - Fantastic CLI framework
-- **Rich** - Beautiful and colorful interface  
+- **Rich** - Beautiful colored interface  
 - **Git** - Robust sync system
 - **Python Community** - Amazing tools
 
@@ -606,8 +592,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## ⭐ **Like the Project?**
 
-If DevEnv Manager helped you, consider:
-- ⭐ **Star** the GitHub repository
+If EnvForge helped you, consider:
+- ⭐ **Give it a star** on GitHub
 - 🐛 **Report bugs** or **suggest improvements**
 - 📢 **Share** with other developers
 - 🤝 **Contribute** with code or documentation
@@ -616,10 +602,9 @@ If DevEnv Manager helped you, consider:
 
 <div align="center">
 
-**🚀 Stop manually configuring environments - automate with DevEnv Manager! 🚀**
+**🔥 Stop manually reconfiguring environments - forge with EnvForge! 🔥**
 
-[🇧🇷 Português](README.pt-br.md) | [🇺🇸 English](README.md)
+ [🇧🇷 Português](README.pt-br.md) | [🇺🇸 English](README.md)
 
 </div>
-
 
