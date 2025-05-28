@@ -6,7 +6,7 @@ Capture: envforge capture "my-environment"
 Restore: envforge restore "my-environment"
 
 Git Synchronization
-bash# Setup
+# Setup
 envforge sync setup git@github.com:user/private-repo.git
 
 # Push/Pull
