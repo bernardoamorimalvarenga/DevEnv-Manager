@@ -8,6 +8,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- TBD
+
+### Changed
+- TBD
+
+### Fixed
+- TBD
+
+## [0.1.3] - 2025-05-28
+
+### Fixed
+- Fixed input validation in security manager's encrypt_data method
+- Added proper validation for None and non-dict data before encryption
+- Improved SecurityException handling and error messages
+- Fixed failing test_encryption_with_invalid_data test case
+
+### Added
+- Enhanced security validation tests with more comprehensive error scenarios
+- Better error messages for encryption failures
+
+## [0.1.2] - 2025-05-23
+
+### Added
 - Initial public release
 - Complete CLI interface with 12+ commands
 - Git-based synchronization system
