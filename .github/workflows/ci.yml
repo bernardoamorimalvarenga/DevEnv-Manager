@@ -109,7 +109,7 @@ jobs:
       run: bandit -r src/envforge/ -f json -o bandit-report.json || true
     
     - name: Upload bandit report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: bandit-report
         path: bandit-report.json
@@ -141,7 +141,7 @@ jobs:
         twine check dist/*
     
     - name: Upload artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: dist
         path: dist/

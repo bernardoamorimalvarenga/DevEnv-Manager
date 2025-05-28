@@ -26,6 +26,7 @@ jobs:
       run: python -m build
     
     - name: Create Release
+      id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -35,12 +36,24 @@ jobs:
         draft: false
         prerelease: false
     
+    - name: Get wheel filename
+      id: get_wheel
+      run: echo "wheel_file=$(ls dist/*.whl)" >> $GITHUB_OUTPUT
+    
     - name: Upload Release Assets
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./dist/devenv_manager-*.whl
-        asset_name: devenv_manager.whl
+        asset_path: ${{ steps.get_wheel.outputs.wheel_file }}
+        asset_name: envforge.whl
         asset_content_type: application/zip
+    
+    - name: Upload to PyPI
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+      run: |
+        pip install twine
+        twine upload dist/*
