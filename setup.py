@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="envforge",
-    version="0.1.2",
+    version="0.1.3",
     description="EnvForge - Forge, sync and restore complete development environments in minutes",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -31,6 +31,7 @@ setup(
         "pyyaml>=6.0",
         "gitpython>=3.1.0",
         "psutil>=5.9.0",
+        "cryptography",
     ],
     
     extras_require={
