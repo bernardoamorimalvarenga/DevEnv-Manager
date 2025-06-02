@@ -547,11 +547,11 @@ Contributions are welcome!
 
 ## 🗺️ **Roadmap**
 
-### **v0.2.0 - Security** (Next 4 weeks)
-- [ ] Snapshot encryption
-- [ ] Safe package list (whitelist)
-- [ ] Sensitive data filtering
-- [ ] Integrity verification
+### **v0.2.0 - Security** (Implemented)
+- [✅] Snapshot encryption
+- [✅] Safe package list (whitelist)
+- [✅] Sensitive data filtering
+- [✅] Integrity verification
 
 ### **v0.3.0 - Multi-OS** (8 weeks)
 - [ ] Windows support (WSL)
